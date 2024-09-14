@@ -1,4 +1,8 @@
 # Pagination
-- How to paginate a dataset with simple page and page_size parameters
-- How to paginate a dataset with hypermedia metadata
-- How to paginate in a deletion-resilient manner
+
+## Resources
+
+### Read or watch:
+
+- [REST API Design: Pagination](https://intranet.aluswe.com/rltoken/VeL1Cbu_NVNND6WKJrECbg)
+- [HATEOAS](https://intranet.aluswe.com/rltoken/Mqk-KBxLRtJaQuWZO-oeAQ)

@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
-"""
-Method named get_page that takes two integer
-arguments page with default value 1 and page_size with
-default value 10.
-"""
-
+"""Simple pagination"""
 import csv
+import math
 from typing import List
-
 index_range = __import__('0-simple_helper_function').index_range
 
 
@@ -17,7 +12,6 @@ class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
-        """ Initialize instance. """
         self.__dataset = None
 
     def dataset(self) -> List[List]:
@@ -32,15 +26,17 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """ Output page of dataset. """
-        assert isinstance(page, int) and isinstance(page_size, int)
-        assert page > 0 and page_size > 0
+        """Gets page list of records
 
-        indices = index_range(page, page_size)
-        start = indices[0]
-        end = indices[1]
+        Args:
+            page (int, optional): Number of page. Defaults to 1.
+            page_size (int, optional):
+            Size of elements in page. Defaults to 10.
 
-        try:
-            return self.dataset()[start:end]
-        except IndexError:
-            return []
+        Returns:
+            List[List]: List of elements in a page
+        """
+        assert (type(page_size) == int and type(page) == int)
+        assert (page > 0 and page_size > 0)
+        beginning, end = index_range(page, page_size)
+        return self.dataset()[beginning:end]
